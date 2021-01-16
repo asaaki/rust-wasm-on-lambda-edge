@@ -4,6 +4,9 @@ version = "0.1.0"
 authors = ["Christoph Grabo <asaaki@mannaz.cc>"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
+description = "Business logic for the WebAssembly module"
+repository = "https://github.com/asaaki/rust-wasm-on-lambda-edge"
+publish = false
 
 [lib]
 name = "mod" # determines the output filename of the compilation
