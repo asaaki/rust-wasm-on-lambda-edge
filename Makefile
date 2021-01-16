@@ -65,3 +65,8 @@ clean:
 	rm -rf $(OUTDIRS) $(ZIP_TARGET)
 
 ci: build call zip
+
+ci.compliance:
+	cd rust && cargo clippy --tests --examples -- -D warnings
+	cd rust && cargo fmt --all -- --check
+	cd rust && cargo doc --no-deps

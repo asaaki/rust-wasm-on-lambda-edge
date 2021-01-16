@@ -51,6 +51,7 @@ jobs:
         key: ${{ runner.os }}-${{ matrix.rust }}-cargo-${{ matrix.cache_counter }}-${{ hashFiles('**/Cargo.toml', '**/src/lib.rs') }}
         restore-keys: |
           ${{ runner.os }}-${{ matrix.rust }}-cargo-${{ matrix.cache_counter }}-
+
     - uses: actions/cache@v2
       with:
         path: ~/.npm
@@ -92,34 +93,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-lint-
 
-    - name: Run cargo fetch
-      uses: actions-rs/cargo@v1
-      with:
-        command: fetch
-
-    - name: Run cargo generate-lockfile
-      uses: actions-rs/cargo@v1
-      with:
-        command: generate-lockfile
-
+    - run: cargo fetch && cargo generate-lockfile
     - uses: actions-rs/audit-check@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: clippy
-      uses: actions-rs/cargo@v1
-      with:
-        command: clippy
-        args: --tests --examples -- -D warnings
-
-    - name: fmt
-      uses: actions-rs/cargo@v1
-      with:
-        command: fmt
-        args: --all -- --check
-
-    - name: Docs
-      uses: actions-rs/cargo@v1
-      with:
-        command: doc
-        args: --no-deps
+    - run: make ci.compliance
