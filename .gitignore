@@ -1,0 +1,6 @@
+/build.function
+/build.js_bundle
+/build.wasm_pkg
+/lambda
+node_modules
+target
