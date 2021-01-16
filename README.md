@@ -1,7 +1,7 @@
 # Rust/WASM on AWS Lambda@Edge (CloudFront)
 
 Since we still cannot have native Rust (or WebAssembly for that matter) on AWS Lambda@Edge, we have to come up with our own solution.
-Here I present mine.
+Here I present mine: using the AWS Lambda Node.js enviroment to execute our WASM blob generated from Rust code.
 
 ## tl;dr
 
