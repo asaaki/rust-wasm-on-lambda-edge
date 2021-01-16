@@ -69,10 +69,6 @@ jobs:
     name: Checking fmt, clippy, and docs
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: rust
-
     steps:
     - uses: actions/checkout@master
 
@@ -92,10 +88,5 @@ jobs:
         key: ${{ runner.os }}-lint-${{ hashFiles('**/Cargo.toml', '**/src/lib.rs') }}
         restore-keys: |
           ${{ runner.os }}-lint-
-
-    - run: cargo fetch && cargo generate-lockfile
-    - uses: actions-rs/audit-check@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
 
     - run: make ci.compliance

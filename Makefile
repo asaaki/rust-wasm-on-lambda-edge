@@ -67,6 +67,9 @@ clean:
 ci: build call zip
 
 ci.compliance:
+	command -v cargo-audit >/dev/null || cargo install cargo-audit
+	cd rust && cargo fetch && cargo generate-lockfile
+	cd rust && cargo audit
 	cd rust && cargo clippy --tests --examples -- -D warnings
 	cd rust && cargo fmt --all -- --check
 	cd rust && cargo doc --no-deps
