@@ -10,6 +10,14 @@ use web_sys::console;
 
 type JsValueResult = Result<JsValue, JsValue>;
 
+// convenient debug log helper
+#[allow(unused_macros)]
+macro_rules! debug_log {
+    ( $( $t:tt )* ) => {
+        web_sys::console::dir_1(&format!( $( $t )* ).into());
+    }
+}
+
 #[wasm_bindgen(start, final)]
 pub fn start() {
     panic::set_hook(Box::new(console_error_panic_hook::hook));
@@ -19,7 +27,9 @@ pub fn start() {
 #[wasm_bindgen(final)]
 pub async fn handler(event: JsValue, _context: JsValue) -> JsValueResult {
     console::log_1(&intern("(wasm handler request call)").into());
-    // console::log_2(&intern("context:").into(), &context);
+
+    // debug_log!("event: {:#?}", cf::Event::from_js(event.clone()));
+
     let request = cf::Event::request_from_event(event)?;
 
     // TODO: Fancy biz logic here ...
