@@ -138,7 +138,7 @@ pub enum CloudFrontOrigin {
         path: String,          // should start with /, but not end with it, max 255
         port: u16,
         protocol: Protocol,
-        read_timeout: u32,
+        read_timeout: u8, // 4–60
         ssl_protocols: Vec<SslProtocol>,
     },
 }
