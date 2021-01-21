@@ -1,11 +1,13 @@
+# https://docs.github.com/en/github/administering-a-repository/configuration-options-for-dependency-updates
+
 version: 2
 
 updates:
-  - package-ecosystem: "npm"
-    directory: "/node"
+  - package-ecosystem: npm
+    directory: /node
     schedule:
-      interval: "daily"
-  - package-ecosystem: "cargo"
-    directory: "/rust"
+      interval: daily
+  - package-ecosystem: cargo
+    directory: /rust
     schedule:
-      interval: "daily"
+      interval: daily
