@@ -51,10 +51,6 @@ opt-level = "s" # best option so far
 # codegen-units = 1
 # opt-level = "s"
 
-[package.metadata.wasm-pack.profile.release]
-wasm-opt = [
-  "-Oz",
-  # at some point you'll hit an issue when using some structs,
-  # which are moved in and out of your wasm code, let's avoid it right from the start
-  "--enable-mutable-globals",
-]
+# since wasm-bindgen 0.2.70 it should not be needed anymore
+# [package.metadata.wasm-pack.profile.release]
+# wasm-opt = ["-Oz", "--enable-mutable-globals"]
