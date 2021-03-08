@@ -55,8 +55,8 @@ jobs:
     - run: make ci
     - uses: actions/upload-artifact@v2
       with:
-        name: function.zip
-        path: lambda/function.zip
+        name: function_node-${{ matrix.node-version }}.zip
+        path: ${{ github.workspace }}/build.function/
 
   check_fmt_and_docs:
     name: Checking fmt, clippy, and docs
