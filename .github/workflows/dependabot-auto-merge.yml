@@ -12,4 +12,6 @@ jobs:
       - uses: ahmadnassri/action-dependabot-auto-merge@v2
         with:
           target: patch
-          github-token: ${{ secrets.GH_TOKEN }}
+          # Note: This needs to be a PAT with (public) repo rights,
+          #       user needs to have access to this repo
+          github-token: ${{ secrets.BOT_TOKEN }}
