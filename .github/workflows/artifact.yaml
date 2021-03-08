@@ -42,7 +42,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - run: make ci
+    - run: make ci.artifact
+
     - uses: actions/upload-artifact@v2
       with:
         name: function.zip

@@ -66,6 +66,8 @@ clean:
 
 ci: build call zip
 
+ci.artifact: build
+
 ci.compliance:
 	@echo "-- auditing"
 	@command -v cargo-audit >/dev/null || cargo install cargo-audit
