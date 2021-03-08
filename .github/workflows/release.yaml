@@ -47,6 +47,7 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifact: "${{ github.workspace }}/lambda/function.zip"
+        artifacts: "${{ github.workspace }}/lambda/function.zip"
+        # use Markdown; or use bodyFile: release.md
         body: |
-          Body content of a release
+          _automatically created release_
