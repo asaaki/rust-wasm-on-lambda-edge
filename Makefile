@@ -67,9 +67,17 @@ clean:
 ci: build call zip
 
 ci.compliance:
-	command -v cargo-audit >/dev/null || cargo install cargo-audit
-	cd rust && cargo fetch && cargo generate-lockfile
-	cd rust && cargo audit
-	cd rust && cargo clippy --tests --examples -- -D warnings
-	cd rust && cargo fmt --all -- --check
-	cd rust && cargo doc --no-deps
+	@echo "group::auditing"
+	@command -v cargo-audit >/dev/null || cargo install cargo-audit
+	@cd rust && cargo fetch && cargo generate-lockfile
+	@cd rust && cargo audit
+	@echo "::endgroup::"
+	@echo "group::clippy linting"
+	@cd rust && cargo clippy --tests --examples -- -D warnings
+	@echo "::endgroup::"
+	@echo "group::format checking"
+	@cd rust && cargo fmt --all -- --check
+	@echo "::endgroup::"
+	@echo "group::documentation building"
+	@cd rust && cargo doc --no-deps
+	@echo "::endgroup::"
