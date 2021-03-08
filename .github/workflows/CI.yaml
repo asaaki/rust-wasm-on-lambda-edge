@@ -53,10 +53,14 @@ jobs:
 
     - run: make test
     - run: make ci
+    - uses: actions/upload-artifact@v2
+      with:
+        name: function.zip
+        path: lambda/function.zip
 
   check_fmt_and_docs:
     name: Checking fmt, clippy, and docs
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@master
