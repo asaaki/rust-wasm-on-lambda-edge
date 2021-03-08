@@ -16,8 +16,7 @@ jobs:
     strategy:
       matrix:
         rust: [stable]
-        node-version: ['12', '10']
-        cache_counter: [1]
+        node-version: ['14', '12', '10']
 
     steps:
     - uses: actions/checkout@v2
@@ -52,11 +51,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - name: Test (rust)
-      run: make test
-
-    - name: Build (CI)
-      run: make ci
+    - run: make test
+    - run: make ci
 
   check_fmt_and_docs:
     name: Checking fmt, clippy, and docs
