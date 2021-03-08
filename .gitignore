@@ -3,4 +3,5 @@
 /build.wasm_pkg
 /lambda
 node_modules
+~syncthing~*
 target
