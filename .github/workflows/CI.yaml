@@ -41,16 +41,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Caching
-      uses: actions/cache@v2
+    - uses: Swatinem/rust-cache@v1
       with:
-        path: |
-          ~/.cargo/registry
-          ~/.cargo/git
-          target
-        key: ${{ runner.os }}-${{ matrix.rust }}-cargo-${{ matrix.cache_counter }}-${{ hashFiles('**/Cargo.toml', '**/src/lib.rs') }}
-        restore-keys: |
-          ${{ runner.os }}-${{ matrix.rust }}-cargo-${{ matrix.cache_counter }}-
+        working-directory: rust
 
     - uses: actions/cache@v2
       with:
@@ -78,15 +71,9 @@ jobs:
         override: true
         components: rustfmt, clippy
 
-    - name: Caching
-      uses: actions/cache@v2
+    - uses: Swatinem/rust-cache@v1
       with:
-        path: |
-          ~/.cargo/registry
-          ~/.cargo/git
-          target
-        key: ${{ runner.os }}-lint-${{ hashFiles('**/Cargo.toml', '**/src/lib.rs') }}
-        restore-keys: |
-          ${{ runner.os }}-lint-
+        working-directory: rust
+        key: lint
 
     - run: make ci.compliance
