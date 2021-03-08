@@ -10,8 +10,8 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  build_and_test:
-    name: Build and test
+  build_and_release:
+    name: Build artifact and release
     runs-on: ubuntu-20.04
 
     steps:
@@ -49,10 +49,20 @@ jobs:
         name: function.zip
         path: ${{ github.workspace }}/build.function/
 
-    - name: Release
-      uses: fnkr/github-action-ghr@v1
+    # - name: Release
+    #   uses: fnkr/github-action-ghr@v1
+    #   if: startsWith(github.ref, 'refs/tags/')
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     GHR_PATH: ${{ github.workspace }}/build.function/
+    #     GHR_COMPRESS: zip
+
+    - name: Release artifact
+      uses: ncipollo/release-action@v1
       if: startsWith(github.ref, 'refs/tags/')
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GHR_PATH: ${{ github.workspace }}/build.function/
-        GHR_COMPRESS: zip
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        artifact: "${{ github.workspace }}/lambda/function.zip"
+        body: |
+          Body content of a release
+        # omitBody: true

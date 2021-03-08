@@ -66,7 +66,7 @@ clean:
 
 ci: build call zip
 
-ci.artifact: build
+ci.artifact: build zip
 
 ci.compliance:
 	@echo "-- auditing"
