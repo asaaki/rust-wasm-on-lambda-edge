@@ -72,7 +72,8 @@ jobs:
         working-directory: rust
 
     - run: make ci.checks
-    # trial - should provide comments in PRs
-    - uses: actions-rs/clippy-check@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+    # no config for work dir - if working it should provide comments in PRs
+    # - uses: actions-rs/clippy-check@v1
+    #   with:
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+    #     args: --all-features
