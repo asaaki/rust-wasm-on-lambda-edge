@@ -68,12 +68,15 @@ ci: build call zip
 
 ci.artifact: build zip
 
-ci.compliance:
-	@echo "-- auditing"
+# customized step since actions-rs/audit-check@v1 does not support work dirs
+ci.audit:
 	@command -v cargo-audit >/dev/null || cargo install cargo-audit
 	@cd rust && cargo fetch && cargo generate-lockfile
 	@cd rust && cargo audit
+
+ci.checks:
 	@echo "-- clippy linting"
+	@cd rust && cargo fetch
 	@cd rust && cargo clippy --tests --examples -- -D warnings
 	@echo "-- format checking"
 	@cd rust && cargo fmt --all -- --check
