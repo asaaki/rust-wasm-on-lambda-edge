@@ -7,10 +7,12 @@ on:
   # tracking issue for this action's issue:
   # https://github.com/ahmadnassri/action-dependabot-auto-merge/issues/60
   pull_request_target:
+    types: [labeled]
 
 jobs:
   auto-merge:
     runs-on: ubuntu-20.04
+    if: contains(github.event.pull_request.labels.*.name, 'dependencies')
     steps:
       - uses: actions/checkout@v2
       - uses: ahmadnassri/action-dependabot-auto-merge@v2
