@@ -13,7 +13,7 @@ const escapedUtil = "String.raw`util`";
 const replaceUtil = '"util"';
 
 const plugins = [
-  replace({ [escapedUtil]: replaceUtil, delimiters: ["", ""] }),
+  replace({ [escapedUtil]: replaceUtil, delimiters: ["", ""], preventAssignment: true }),
   typescript({ tsconfig: "./tsconfig-build.json" }),
   resolve(),
   commonjs(),
