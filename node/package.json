@@ -17,7 +17,7 @@
     "wasm_pkg": "file:../build.wasm_pkg"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "~17.1",
+    "@rollup/plugin-commonjs": "~18.0",
     "@rollup/plugin-node-resolve": "~11.2",
     "@rollup/plugin-replace": "~2.4",
     "@types/aws-lambda": "^8.10.73",
