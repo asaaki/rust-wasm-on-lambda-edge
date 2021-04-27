@@ -7,7 +7,14 @@ updates:
     directory: /node
     schedule:
       interval: daily
+    labels:
+      - "npm"
+    ignore:
+      - dependency-name: "@types/node"
+        versions: [">=13.0.0"]
   - package-ecosystem: cargo
     directory: /rust
     schedule:
       interval: daily
+    labels:
+      - "cargo"
