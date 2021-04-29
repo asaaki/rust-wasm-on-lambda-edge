@@ -17,6 +17,8 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ main ]
+    paths:
+      - 'node'
   schedule:
     - cron: '36 0 * * 1'
 
@@ -24,6 +26,10 @@ jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
+    # should prevent CodeQL<->Dependabot clashes
+    #   "Workflows triggered by Dependabot on the "push" event run with read-only access."
+    #   "Uploading Code Scanning results requires write access."
+    if: github.actor != 'dependabot[bot]'
 
     strategy:
       fail-fast: false
