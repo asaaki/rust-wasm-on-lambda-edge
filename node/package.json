@@ -21,7 +21,7 @@
     "@rollup/plugin-node-resolve": "~13.0",
     "@rollup/plugin-replace": "~3.0",
     "@types/aws-lambda": "^8.10.81",
-    "@types/node": "14.17.7",
+    "@types/node": "14.17.9",
     "builtin-modules": "~3.2",
     "rollup": "^2.55.1",
     "rollup-plugin-terser": "~7.0",
