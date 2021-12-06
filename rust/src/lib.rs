@@ -1,3 +1,7 @@
+// NOTE: We need to allow some dead code, because this example project
+//       doesn't use all fields of every struct, but end users might.
+#![allow(dead_code)]
+
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
