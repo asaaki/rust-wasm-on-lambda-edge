@@ -1,7 +1,6 @@
 // NOTE: We need to allow some dead code, because this example project
 //       doesn't use all fields of every struct, but end users might.
 #![allow(dead_code)]
-
 // The wasm_bindgen attribute macros seem to trigger this lint
 #![allow(clippy::unused_unit)]
 
