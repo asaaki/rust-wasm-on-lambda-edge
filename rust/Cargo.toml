@@ -17,7 +17,7 @@ crate-type = ["cdylib", "rlib"]
 # Biggest hurdle for me in the past were deps relying on some system timer,
 # which is not available in WASM land, of course.
 [dependencies]
-wasm-bindgen = { version = "0.2.79", features = ["serde-serialize", "enable-interning"] }
+wasm-bindgen = { version = "0.2.80", features = ["serde-serialize", "enable-interning"] }
 wasm-bindgen-futures = "0.4.29"
 
 # saves some kilobytes, but might also not result in the fasted code possible
