@@ -29,7 +29,7 @@ console_error_panic_hook = "0.1.7"
 # Note: not using the no-std setup, because wasm-bindgen does not either
 serde = { version = "1.0.137", features = ["derive"] }
 serde_json = "1.0.81"
-serde-wasm-bindgen = "0.4.2"
+serde-wasm-bindgen = "0.4.3"
 base64 = "0.13.0"
 
 js-sys = "0.3.57"
