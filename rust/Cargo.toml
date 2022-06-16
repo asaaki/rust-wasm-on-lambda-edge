@@ -18,7 +18,7 @@ crate-type = ["cdylib", "rlib"]
 # which is not available in WASM land, of course.
 [dependencies]
 wasm-bindgen = { version = "0.2.81", features = ["serde-serialize", "enable-interning"] }
-wasm-bindgen-futures = "0.4.30"
+wasm-bindgen-futures = "0.4.31"
 
 # saves some kilobytes, but might also not result in the fasted code possible
 wee_alloc = "0.4.5"
