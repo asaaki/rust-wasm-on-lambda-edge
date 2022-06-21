@@ -23,7 +23,7 @@
     "@types/aws-lambda": "^8.10.100",
     "@types/node": "14.18.21",
     "builtin-modules": "~3.3",
-    "rollup": "^2.75.6",
+    "rollup": "^2.75.7",
     "rollup-plugin-terser": "~7.0",
     "rollup-plugin-typescript2": "~0.32",
     "ts-node": "~10.8",
