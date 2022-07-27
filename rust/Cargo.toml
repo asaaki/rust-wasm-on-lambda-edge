@@ -33,7 +33,7 @@ serde-wasm-bindgen = "0.4.3"
 base64 = "0.13.0"
 
 js-sys = "0.3.59"
-web-sys = { version = "0.3.58", features = ["console"] }
+web-sys = { version = "0.3.59", features = ["console"] }
 
 # if you need something like std::time::Instant::now() in WebAssembly:
 # instant = { version = "0.1", features = [ "wasm-bindgen", "now" ] }
