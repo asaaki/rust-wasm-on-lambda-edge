@@ -2,9 +2,9 @@ name: Artifact
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 env:
   RUSTFLAGS: -Dwarnings
@@ -12,16 +12,11 @@ env:
 jobs:
   build_artifact:
     name: Build artifact
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v3
-
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        profile: minimal
-        override: true
+    - uses: dtolnay/rust-toolchain@stable
 
     - uses: jetli/wasm-pack-action@v0.3.0
       with:
@@ -29,11 +24,11 @@ jobs:
 
     - uses: actions/setup-node@v3
       with:
-        node-version: '12'
+        node-version: '16'
 
-    - uses: Swatinem/rust-cache@v1
+    - uses: Swatinem/rust-cache@v2
       with:
-        working-directory: rust
+        workspaces: rust
 
     - uses: actions/cache@v3
       with:
