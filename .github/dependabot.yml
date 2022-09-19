@@ -1,16 +1,23 @@
-# https://docs.github.com/en/github/administering-a-repository/configuration-options-for-dependency-updates
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
 
 updates:
+
   - package-ecosystem: npm
     directory: /node
     schedule:
       interval: daily
     ignore:
       - dependency-name: "@types/node"
-        versions: [">=15.0.0"]
+        versions: [">=17.0.0"]
+
   - package-ecosystem: cargo
     directory: /rust
+    schedule:
+      interval: daily
+
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
       interval: daily
