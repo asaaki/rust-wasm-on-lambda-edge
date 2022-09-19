@@ -4,8 +4,12 @@
 // The wasm_bindgen attribute macros seem to trigger this lint
 #![allow(clippy::unused_unit)]
 
+#[cfg(target_arch = "wasm32")]
+use lol_alloc::FreeListAllocator;
+
+#[cfg(target_arch = "wasm32")]
 #[global_allocator]
-static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+static ALLOCATOR: FreeListAllocator = FreeListAllocator::new();
 
 mod types;
 
@@ -24,13 +28,13 @@ macro_rules! debug_log {
     }
 }
 
-#[wasm_bindgen(start, final)]
+#[wasm_bindgen(start, skip_typescript)]
 pub fn start() {
     panic::set_hook(Box::new(console_error_panic_hook::hook));
     console::log_1(&intern("(wasm module start)").into());
 }
 
-#[wasm_bindgen(final)]
+#[wasm_bindgen]
 pub async fn handler(event: JsValue, _context: JsValue) -> JsValueResult {
     console::log_1(&intern("(wasm handler request call)").into());
 

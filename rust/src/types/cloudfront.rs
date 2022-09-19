@@ -256,10 +256,5 @@ fn serialize_return<T>(input: &T) -> JsValueResult
 where
     T: serde::ser::Serialize,
 {
-    // Note: might be not a good idea, because collections are turned into
-    // ES2015 Maps, which are not JSON stringify'able out of the box
-    // serde_wasm_bindgen::to_value(input)
-    //     .map_err(|_| intern("could not serialize request struct").into() )
-
-    JsValue::from_serde(input).map_err(|_| intern("could not serialize request struct").into())
+    serde_wasm_bindgen::to_value(input).map_err(|_| intern("could not serialize request struct").into())
 }

@@ -17,11 +17,10 @@ crate-type = ["cdylib", "rlib"]
 # Biggest hurdle for me in the past were deps relying on some system timer,
 # which is not available in WASM land, of course.
 [dependencies]
-wasm-bindgen = { version = "0.2.82", features = ["serde-serialize", "enable-interning"] }
-wasm-bindgen-futures = "0.4.32"
+wasm-bindgen = { version = "0.2.83", features = ["serde-serialize", "enable-interning"] }
+wasm-bindgen-futures = "0.4.33"
 
-# saves some kilobytes, but might also not result in the fasted code possible
-wee_alloc = "0.4.5"
+lol_alloc = "0.1.3"
 
 # for printing nicer panics
 console_error_panic_hook = "0.1.7"
@@ -32,14 +31,14 @@ serde_json = "1.0.85"
 serde-wasm-bindgen = "0.4.3"
 base64 = "0.13.0"
 
-js-sys = "0.3.59"
-web-sys = { version = "0.3.59", features = ["console"] }
+js-sys = "0.3.60"
+web-sys = { version = "0.3.60", features = ["console"] }
 
 # if you need something like std::time::Instant::now() in WebAssembly:
 # instant = { version = "0.1", features = [ "wasm-bindgen", "now" ] }
 
 [dev-dependencies]
-wasm-bindgen-test = "0.3.32"
+wasm-bindgen-test = "0.3.33"
 
 [profile.release]
 lto = true
@@ -50,7 +49,3 @@ opt-level = "s" # best option so far
 # [profile.release.package.'*']
 # codegen-units = 1
 # opt-level = "s"
-
-# since wasm-bindgen 0.2.70 it should not be needed anymore
-# [package.metadata.wasm-pack.profile.release]
-# wasm-opt = ["-Oz", "--enable-mutable-globals"]
