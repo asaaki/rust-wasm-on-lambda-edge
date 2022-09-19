@@ -11,23 +11,14 @@
     "directory": "node"
   },
   "scripts": {
-    "build": "rollup -c"
+    "build": "esbuild entrypoints/origin-request.ts --analyze --minify --bundle --platform=node --target=node14 --tsconfig=tsconfig-build.json --outdir=../build.function"
   },
   "dependencies": {
     "wasm_pkg": "file:../build.wasm_pkg"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "~22.0",
-    "@rollup/plugin-node-resolve": "~14.1",
-    "@rollup/plugin-replace": "~4.0",
     "@types/aws-lambda": "^8.10.104",
     "@types/node": "16.11.59",
-    "builtin-modules": "~3.3",
-    "rollup": "^2.79.0",
-    "rollup-plugin-terser": "~7.0",
-    "rollup-plugin-typescript2": "~0.34",
-    "ts-node": "~10.9",
-    "tslib": "~2.4",
-    "typescript": "~4.8"
+    "esbuild": "^0.15.8"
   }
 }

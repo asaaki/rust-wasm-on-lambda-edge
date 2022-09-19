@@ -5,14 +5,15 @@
 # Using some of the shorthand variables, see docs here:
 # https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html
 
-WASM_OUTDIR = build.wasm_pkg
+PKG_NAME    = wasm_pkg
+WASM_OUTDIR = build.$(PKG_NAME)
 FN_OUTDIR   = build.function
 ZIP_OUTDIR  = lambda
 OUTDIRS     = $(ZIP_OUTDIR) $(FN_OUTDIR) $(WASM_OUTDIR)
 
-WASM_TARGET = $(WASM_OUTDIR)/mod_bg.wasm
+WASM_TARGET = $(WASM_OUTDIR)/$(PKG_NAME)_bg.wasm
 FN_TARGET   = $(FN_OUTDIR)/origin-request.js \
-              $(FN_OUTDIR)/mod_bg.wasm
+              $(FN_OUTDIR)/$(PKG_NAME)_bg.wasm
 ZIP_TARGET  = $(ZIP_OUTDIR)/function.zip
 
 build: $(FN_TARGET)
@@ -25,6 +26,7 @@ $(WASM_TARGET):
 		&& wasm-pack build \
 			--target nodejs \
 			--release \
+			--out-name $(PKG_NAME) \
 			--out-dir ../$(WASM_OUTDIR)
 
 fn: $(FN_TARGET)

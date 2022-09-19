@@ -9,7 +9,7 @@ repository = "https://github.com/asaaki/rust-wasm-on-lambda-edge"
 publish = false
 
 [lib]
-name = "mod" # determines the output filename of the compilation
+name = "wasm_pkg" # determines the output filename of the compilation (but can be set with `--out-name` option in wasm-pack)
 crate-type = ["cdylib", "rlib"]
 
 # If possible and feasible you should stick to no_std dependencies,
@@ -46,6 +46,6 @@ codegen-units = 1 # can save some bytes, but compilation is a tad slower
 opt-level = "s" # best option so far
 
 # has no real effect on final wasm size
-# [profile.release.package.'*']
-# codegen-units = 1
-# opt-level = "s"
+[profile.release.package.'*']
+codegen-units = 1
+opt-level = "s"

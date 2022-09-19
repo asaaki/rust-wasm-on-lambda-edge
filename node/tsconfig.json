@@ -3,10 +3,8 @@
     "allowJs": false,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "lib": [
-      "es2017"
-    ],
-    "module": "commonjs",
+    "lib": ["ES2020"],
+    "module": "ES2020",
     "moduleResolution": "node",
     "newLine": "LF",
     "noImplicitReturns": true,
@@ -15,7 +13,7 @@
     "outDir": "./built",
     "sourceMap": false,
     "strict": true,
-    "target": "es2017"
+    "target": "ES2020"
   },
   "exclude": [
     "built",
