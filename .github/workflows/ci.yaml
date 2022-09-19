@@ -16,7 +16,9 @@ jobs:
     strategy:
       matrix:
         rust: [stable]
-        node-version: ['14', '12']
+        # https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/edge-functions-restrictions.html#lambda-at-edge-runtime-restrictions
+        # note: only use active versions; EOLs will be dropped
+        node-version: ['16', '14']
 
     steps:
     - uses: actions/checkout@v2
