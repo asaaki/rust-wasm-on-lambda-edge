@@ -256,5 +256,6 @@ fn serialize_return<T>(input: &T) -> JsValueResult
 where
     T: serde::ser::Serialize,
 {
-    serde_wasm_bindgen::to_value(input).map_err(|_| intern("could not serialize request struct").into())
+    serde_wasm_bindgen::to_value(input)
+        .map_err(|_| intern("could not serialize request struct").into())
 }
