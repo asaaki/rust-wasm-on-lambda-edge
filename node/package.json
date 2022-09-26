@@ -20,7 +20,7 @@
     "@rollup/plugin-commonjs": "~22.0",
     "@rollup/plugin-node-resolve": "~14.1",
     "@rollup/plugin-replace": "~4.0",
-    "@types/aws-lambda": "^8.10.104",
+    "@types/aws-lambda": "^8.10.106",
     "@types/node": "16.11.59",
     "builtin-modules": "~3.3",
     "rollup": "^2.79.1",
