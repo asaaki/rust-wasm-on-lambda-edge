@@ -24,7 +24,7 @@ jobs:
     - uses: dtolnay/rust-toolchain@stable
 
     # https://github.com/jetli/wasm-pack-action
-    - uses: jetli/wasm-pack-action@v0.3.0
+    - uses: jetli/wasm-pack-action@v0.4.0
       with:
         version: 'latest'
     # alternative:
