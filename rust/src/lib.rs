@@ -5,11 +5,13 @@
 #![allow(clippy::unused_unit)]
 
 #[cfg(target_arch = "wasm32")]
-use lol_alloc::FreeListAllocator;
+use lol_alloc::{AssumeSingleThreaded, FreeListAllocator};
 
 #[cfg(target_arch = "wasm32")]
 #[global_allocator]
-static ALLOCATOR: FreeListAllocator = FreeListAllocator::new();
+// SAFETY: This application is single threaded, so using AssumeSingleThreaded is allowed.
+static ALLOCATOR: AssumeSingleThreaded<FreeListAllocator> =
+    unsafe { AssumeSingleThreaded::new(FreeListAllocator::new()) };
 
 mod types;
 
