@@ -4,12 +4,12 @@
   - @types/aws-lambda/common/cloudfront.d.ts
 */
 
+use base64::{engine::Engine, prelude::BASE64_STANDARD};
 use serde::{Deserialize, Serialize};
 #[allow(unused_imports)]
 use serde_json::Value;
 use std::collections::BTreeMap;
 use wasm_bindgen::{intern, prelude::*};
-use base64::{prelude::BASE64_STANDARD, engine::Engine};
 
 pub(crate) type Event = CloudFrontRecords;
 
@@ -231,7 +231,8 @@ impl TextOrBase64 {
         match encoding {
             Text => Ok(self.0),
             Base64 => {
-                let data = BASE64_STANDARD.decode(self.0)
+                let data = BASE64_STANDARD
+                    .decode(self.0)
                     .map_err(|_| intern("cannot decode base64 encoded string"))?;
                 let s = String::from_utf8(data)
                     .map_err(|_| intern("(b64 string) cannot convert to utf8 string"))?;
