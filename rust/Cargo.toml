@@ -26,7 +26,7 @@ lol_alloc = "0.3.0"
 console_error_panic_hook = "0.1.7"
 
 # Note: not using the no-std setup, because wasm-bindgen does not either
-serde = { version = "1.0.158", features = ["derive"] }
+serde = { version = "1.0.159", features = ["derive"] }
 serde_json = "1.0.95"
 serde-wasm-bindgen = "0.5.0"
 base64 = "0.21.0"
