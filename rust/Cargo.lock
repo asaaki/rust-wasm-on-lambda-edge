@@ -72,9 +72,9 @@ dependencies = [
 
 [[package]]
 name = "lol_alloc"
-version = "0.3.0"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a73693618027bebe670cda59e35ca30a0897cfb52b5bbb6372c9a5c0b27c35ab"
+checksum = "36aabc32b791f1a506e0bb90e0fa03e983500549d7b1f2dad45b5fc20ef45974"
 dependencies = [
  "spin",
 ]
