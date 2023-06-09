@@ -17,7 +17,7 @@
     "wasm_pkg": "file:../build.wasm_pkg"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.116",
+    "@types/aws-lambda": "^8.10.117",
     "@types/node": "16.18.34",
     "esbuild": "^0.17.19"
   }
