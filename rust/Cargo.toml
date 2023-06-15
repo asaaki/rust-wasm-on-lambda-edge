@@ -38,7 +38,7 @@ web-sys = { version = "0.3.64", features = ["console"] }
 # instant = { version = "0.1", features = [ "wasm-bindgen", "now" ] }
 
 [dev-dependencies]
-wasm-bindgen-test = "0.3.36"
+wasm-bindgen-test = "0.3.37"
 
 [profile.release]
 lto = true
