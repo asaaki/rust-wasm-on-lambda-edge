@@ -20,7 +20,7 @@ jobs:
         node-version: ['16', '14']
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: dtolnay/rust-toolchain@stable
 
     # https://github.com/jetli/wasm-pack-action
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: dtolnay/rust-toolchain@stable
       with:
         components: rustfmt, clippy
