@@ -31,7 +31,7 @@ serde_json = "1.0.128"
 serde-wasm-bindgen = "0.6.5"
 base64 = "0.22.1"
 
-js-sys = "0.3.70"
+js-sys = "0.3.71"
 web-sys = { version = "0.3.70", features = ["console"] }
 
 # if you need something like std::time::Instant::now() in WebAssembly:
