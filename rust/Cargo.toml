@@ -18,7 +18,7 @@ crate-type = ["cdylib", "rlib"]
 # which is not available in WASM land, of course.
 [dependencies]
 wasm-bindgen = { version = "0.2.93", features = ["serde-serialize", "enable-interning"] }
-wasm-bindgen-futures = "0.4.43"
+wasm-bindgen-futures = "0.4.44"
 
 lol_alloc = "0.4.1"
 
