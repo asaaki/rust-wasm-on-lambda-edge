@@ -1,7 +1,6 @@
 [package]
 name = "rust-wasm-on-lambda-edge"
 version = "0.1.0"
-authors = ["Christoph Grabo <asaaki@mannaz.cc>"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
 description = "Business logic for the WebAssembly module"
