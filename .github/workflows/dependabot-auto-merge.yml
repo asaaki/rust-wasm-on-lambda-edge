@@ -8,7 +8,7 @@ on:
 
 jobs:
   auto-merge:
-    runs-on: namespace-profile-default
+    runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
     steps:
       - uses: actions/checkout@v4

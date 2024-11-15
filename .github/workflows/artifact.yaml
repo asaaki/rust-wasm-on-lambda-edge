@@ -12,7 +12,7 @@ env:
 jobs:
   build_artifact:
     name: Build artifact
-    runs-on: namespace-profile-default
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
