@@ -1,3 +1,13 @@
 [workspace]
 resolver = "2"
 members = ["rust"]
+
+[profile.release]
+lto = true
+codegen-units = 1 # can save some bytes, but compilation is a tad slower
+opt-level = "s" # best option so far
+
+# has no real effect on final wasm size
+[profile.release.package.'*']
+codegen-units = 1
+opt-level = "s"

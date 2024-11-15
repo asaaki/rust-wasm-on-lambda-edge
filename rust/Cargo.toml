@@ -2,7 +2,7 @@
 name = "rust-wasm-on-lambda-edge"
 version = "0.1.0"
 authors = ["Christoph Grabo <asaaki@mannaz.cc>"]
-edition = "2018"
+edition = "2021"
 license = "MIT OR Apache-2.0"
 description = "Business logic for the WebAssembly module"
 repository = "https://github.com/asaaki/rust-wasm-on-lambda-edge"
@@ -43,12 +43,4 @@ web-sys = { version = "0.3.72", features = ["console"] }
 [dev-dependencies]
 wasm-bindgen-test = "0.3.45"
 
-[profile.release]
-lto = true
-codegen-units = 1 # can save some bytes, but compilation is a tad slower
-opt-level = "s" # best option so far
-
-# has no real effect on final wasm size
-[profile.release.package.'*']
-codegen-units = 1
-opt-level = "s"
+# note: since we use a workspace, the profile settings are in the top-level Cargo.toml
