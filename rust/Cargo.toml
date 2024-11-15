@@ -17,9 +17,13 @@ crate-type = ["cdylib", "rlib"]
 # Biggest hurdle for me in the past were deps relying on some system timer,
 # which is not available in WASM land, of course.
 [dependencies]
-wasm-bindgen = { version = "0.2.93", features = ["serde-serialize", "enable-interning"] }
+wasm-bindgen = { version = "0.2.95", features = ["serde-serialize", "enable-interning"] }
 wasm-bindgen-futures = "0.4.45"
 
+# alternatives to try:
+# - https://crates.io/crates/alloc_cat
+# - https://crates.io/crates/mini-alloc
+# - https://crates.io/crates/talc (nightly only)
 lol_alloc = "0.4.1"
 
 # for printing nicer panics

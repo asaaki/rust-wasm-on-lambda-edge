@@ -1,17 +1,12 @@
 // NOTE: We need to allow some dead code, because this example project
 //       doesn't use all fields of every struct, but end users might.
 #![allow(dead_code)]
-// The wasm_bindgen attribute macros seem to trigger this lint
-#![allow(clippy::unused_unit)]
-
-#[cfg(target_arch = "wasm32")]
-use lol_alloc::{AssumeSingleThreaded, FreeListAllocator};
 
 #[cfg(target_arch = "wasm32")]
 #[global_allocator]
 // SAFETY: This application is single threaded, so using AssumeSingleThreaded is allowed.
-static ALLOCATOR: AssumeSingleThreaded<FreeListAllocator> =
-    unsafe { AssumeSingleThreaded::new(FreeListAllocator::new()) };
+static ALLOCATOR: lol_alloc::AssumeSingleThreaded<lol_alloc::FreeListAllocator> =
+    unsafe { lol_alloc::AssumeSingleThreaded::new(lol_alloc::FreeListAllocator::new()) };
 
 mod types;
 

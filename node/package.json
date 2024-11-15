@@ -11,14 +11,14 @@
     "directory": "node"
   },
   "scripts": {
-    "build": "esbuild entrypoints/origin-request.ts --analyze --minify --bundle --platform=node --target=node14 --tsconfig=tsconfig-build.json --outdir=../build.function"
+    "build": "esbuild entrypoints/origin-request.ts --analyze --minify --bundle --platform=node --target=node18 --tsconfig=tsconfig-build.json --outdir=../build.function"
   },
   "dependencies": {
     "wasm_pkg": "file:../build.wasm_pkg"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.145",
-    "@types/node": "16.18.114",
+    "@types/node": "20.17.6",
     "esbuild": "^0.24.0"
   }
 }

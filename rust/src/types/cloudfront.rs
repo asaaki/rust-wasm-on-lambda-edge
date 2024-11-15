@@ -1,7 +1,7 @@
 /*
-  References:
-  - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-event-structure.html
-  - @types/aws-lambda/common/cloudfront.d.ts
+    References:
+    - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-event-structure.html
+    - @types/aws-lambda/common/cloudfront.d.ts
 */
 
 use base64::{engine::Engine, prelude::BASE64_STANDARD};

@@ -1,7 +1,4 @@
-/build.function
-/build.js_bundle
-/build.wasm_pkg
+/build.*
 /lambda
 node_modules
-~syncthing~*
 target
