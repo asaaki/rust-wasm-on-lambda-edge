@@ -60,7 +60,7 @@ call:
 	node fixtures/call-test.js
 
 test:
-	cd rust && cargo test --bins --examples --tests --benches --all-targets --all-features
+	cargo test --bins --examples --tests --benches --all-targets --all-features
 	cd rust && wasm-pack test --node
 
 clean:
@@ -73,14 +73,14 @@ ci.artifact: build zip
 # customized step since actions-rs/audit-check@v1 does not support work dirs
 ci.audit:
 	@command -v cargo-audit >/dev/null || cargo install cargo-audit
-	@cd rust && cargo fetch && cargo generate-lockfile
-	@cd rust && cargo audit
+	@cargo fetch && cargo generate-lockfile
+	@cargo audit
 
 ci.checks:
 	@echo "-- clippy linting"
-	@cd rust && cargo fetch
-	@cd rust && cargo clippy --tests --examples -- -D warnings
+	@cargo fetch
+	@cargo clippy --tests --examples -- -D warnings
 	@echo "-- format checking"
-	@cd rust && cargo fmt --all -- --check
+	@cargo fmt --all -- --check
 	@echo "-- documentation building"
-	@cd rust && cargo doc --no-deps
+	@cargo doc --no-deps
