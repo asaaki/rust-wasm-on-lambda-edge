@@ -23,7 +23,6 @@ wasm-bindgen-futures = "0.4.45"
 # alternatives to try:
 # - https://crates.io/crates/alloc_cat
 # - https://crates.io/crates/mini-alloc
-# - https://crates.io/crates/talc (nightly only)
 lol_alloc = "0.4.1"
 
 # for printing nicer panics
