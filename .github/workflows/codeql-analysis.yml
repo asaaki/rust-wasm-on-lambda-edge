@@ -24,7 +24,7 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest
+    runs-on: namespace-profile-default
     # should prevent CodeQL<->Dependabot clashes
     #   "Workflows triggered by Dependabot on the "push" event run with read-only access."
     #   "Uploading Code Scanning results requires write access."

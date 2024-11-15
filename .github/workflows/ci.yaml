@@ -13,7 +13,7 @@ jobs:
   build_and_test:
     name: Build and test
     # https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners
-    runs-on: ubuntu-latest
+    runs-on: namespace-profile-default
     strategy:
       matrix:
         # https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-at-edge-function-restrictions.html#lambda-at-edge-restrictions-runtime
@@ -53,7 +53,7 @@ jobs:
 
   checks:
     name: Checks for fmt, clippy, and docs
-    runs-on: ubuntu-latest
+    runs-on: namespace-profile-default
 
     steps:
     - uses: actions/checkout@v4

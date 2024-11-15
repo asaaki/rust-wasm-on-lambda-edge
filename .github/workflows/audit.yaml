@@ -10,7 +10,7 @@ on:
 
 jobs:
   security_audit:
-    runs-on: ubuntu-latest
+    runs-on: namespace-profile-default
     steps:
       - uses: actions/checkout@v4
       - uses: Swatinem/rust-cache@v2
