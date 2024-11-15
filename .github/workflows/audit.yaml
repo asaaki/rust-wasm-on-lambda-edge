@@ -3,8 +3,8 @@ name: Security Audit
 on:
   push:
     paths:
+      - 'Cargo.lock'
       - '**/Cargo.toml'
-      - '**/Cargo.lock'
   schedule:
     - cron: '23 5 * * *'
 
