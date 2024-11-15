@@ -2,6 +2,7 @@
 resolver = "2"
 members = ["rust"]
 
+# https://doc.rust-lang.org/cargo/reference/profiles.html
 [profile.release]
 lto = true
 codegen-units = 1 # can save some bytes, but compilation is a tad slower

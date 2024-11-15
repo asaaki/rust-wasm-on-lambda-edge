@@ -17,8 +17,8 @@ jobs:
     strategy:
       matrix:
         # https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-at-edge-function-restrictions.html#lambda-at-edge-restrictions-runtime
-        # note: only use active versions; EOLs will be dropped
-        node-version: ['20', '18']
+        # note: only use more recent active version; (close to) EOLs will be dropped
+        node-version: ['20']
 
     steps:
     - uses: actions/checkout@v4
