@@ -2,6 +2,9 @@
 
 **Read the accompanying [blog post][mt-post] to this project.**
 
+> [!IMPORTANT]  
+> `2026-01-09` Archived, as I do not plan to maintain the code any further. If you use this for your own setup, keep in mind that dependencies will be outdated and you have to put some work in to get it to a decent state again.
+
 Since we still cannot have native Rust (or WebAssembly for that matter) on AWS Lambda@Edge, we have to come up with our own solution.
 Here I present mine: using the AWS Lambda Node.js enviroment to execute our Wasm blob generated from Rust code.
 
